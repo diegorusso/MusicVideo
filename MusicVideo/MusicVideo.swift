@@ -18,13 +18,14 @@ class Videos{
     private var _vImageUrl:String
     private var _vArtist:String
     private var _vVideoUrl:String
-    private var _vImid:Int
+    private var _vImid:String
     private var _vGenre:String
     private var _vLinkToiTunes:String
     private var _vReleaseDate:String
     
-    // Getters
+    var vImageData:NSData?
     
+    // Getters
     var vName: String{
         return _vName
     }
@@ -49,7 +50,7 @@ class Videos{
         return _vVideoUrl
     }
     
-    var vImid: Int {
+    var vImid: String {
         return _vImid
     }
     
@@ -124,10 +125,10 @@ class Videos{
         // Video ID
         if let id = data["id"] as? JSONDictionary,
             imidAttributes = id["attributes"] as? JSONDictionary,
-            vImid = imidAttributes["im:id"] as? Int {
+            vImid = imidAttributes["im:id"] as? String {
                 _vImid = vImid
         } else {
-            _vImid = 0
+            _vImid = ""
         }
         
         // Video Genre
