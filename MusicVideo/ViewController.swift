@@ -15,20 +15,24 @@ class ViewController: UIViewController {
         
         // Call API
         let api = APIManager()
-        api.loadData("https://itunes.apple.com/uk/rss/topmusicvideos/limit=10/json", completion: didLoadData)
-        
+        let urlApi = "https://itunes.apple.com/uk/rss/topmusicvideos/limit=10/json"
+        api.loadData(urlApi, completion: didLoadData)
     }
     
-    func didLoadData(result: String) {
+    func didLoadData(videos: [Videos]) {
         
-        let alert = UIAlertController(title: (result), message: nil, preferredStyle: .Alert)
-        
-        let okAction = UIAlertAction(title: "Ok", style: .Default){ action -> Void in
-            //do something if you want
+        for item in videos {
+            print("name = \(item.vName)")
         }
         
-        alert.addAction(okAction)
-        self.presentViewController(alert, animated: true, completion:nil)
+//        let alert = UIAlertController(title: (result), message: nil, preferredStyle: .Alert)
+//        
+//        let okAction = UIAlertAction(title: "Ok", style: .Default){ action -> Void in
+//            //do something if you want
+//        }
+//        
+//        alert.addAction(okAction)
+//        self.presentViewController(alert, animated: true, completion:nil)
         
     }
 }
