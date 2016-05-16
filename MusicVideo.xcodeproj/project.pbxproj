@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D333601E1CE9A4CB00E39FA6 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = D333601D1CE9A4CB00E39FA6 /* Reachability.m */; };
 		D3B564B61CE885720092EA03 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B564B51CE885720092EA03 /* AppDelegate.swift */; };
 		D3B564B81CE885720092EA03 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B564B71CE885720092EA03 /* ViewController.swift */; };
 		D3B564BB1CE885720092EA03 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3B564B91CE885720092EA03 /* Main.storyboard */; };
@@ -37,6 +38,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D333601B1CE9A4CB00E39FA6 /* MusicVideo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MusicVideo-Bridging-Header.h"; sourceTree = "<group>"; };
+		D333601C1CE9A4CB00E39FA6 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		D333601D1CE9A4CB00E39FA6 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		D3B564B21CE885720092EA03 /* MusicVideo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicVideo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3B564B51CE885720092EA03 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D3B564B71CE885720092EA03 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -80,6 +84,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D333601A1CE9A46F00E39FA6 /* Obj-C */ = {
+			isa = PBXGroup;
+			children = (
+				D333601C1CE9A4CB00E39FA6 /* Reachability.h */,
+				D333601D1CE9A4CB00E39FA6 /* Reachability.m */,
+				D333601B1CE9A4CB00E39FA6 /* MusicVideo-Bridging-Header.h */,
+			);
+			name = "Obj-C";
+			sourceTree = "<group>";
+		};
 		D3B564A91CE885720092EA03 = {
 			isa = PBXGroup;
 			children = (
@@ -104,6 +118,7 @@
 		D3B564B41CE885720092EA03 /* MusicVideo */ = {
 			isa = PBXGroup;
 			children = (
+				D333601A1CE9A46F00E39FA6 /* Obj-C */,
 				D3B564E91CE8EE520092EA03 /* Utils */,
 				D3B564E61CE889B50092EA03 /* Supporting Files */,
 				D3B564E31CE889710092EA03 /* Model */,
@@ -311,6 +326,7 @@
 				D3B564B81CE885720092EA03 /* ViewController.swift in Sources */,
 				D3B564ED1CE8EFA80092EA03 /* MusicVideo.swift in Sources */,
 				D3B564B61CE885720092EA03 /* AppDelegate.swift in Sources */,
+				D333601E1CE9A4CB00E39FA6 /* Reachability.m in Sources */,
 				D3B564EB1CE8EE660092EA03 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -455,11 +471,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = MusicVideo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = it.diegor.MusicVideo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MusicVideo/MusicVideo-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -467,11 +486,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = MusicVideo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = it.diegor.MusicVideo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MusicVideo/MusicVideo-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -540,6 +561,7 @@
 				D3B564DC1CE885720092EA03 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D3B564DD1CE885720092EA03 /* Build configuration list for PBXNativeTarget "MusicVideoTests" */ = {
 			isa = XCConfigurationList;
@@ -548,6 +570,7 @@
 				D3B564DF1CE885720092EA03 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D3B564E01CE885720092EA03 /* Build configuration list for PBXNativeTarget "MusicVideoUITests" */ = {
 			isa = XCConfigurationList;
@@ -556,6 +579,7 @@
 				D3B564E21CE885720092EA03 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
