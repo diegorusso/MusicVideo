@@ -9,7 +9,7 @@
 import UIKit
 
 var reachability: Reachability?
-var reachabilityStatus = WIFI
+var reachabilityStatus = " "
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -25,12 +25,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // NSURLCache.setSharedURLCache(NSURLCache(memoryCapacity: 0, diskCapacity: 0, diskPath: nil))
         
         // Add observer: when I receive kReachabilityChangedNotification I execute reachabilityChanged
-        // : after the selector means there is a parameter
+        // _: after the selector means there is a parameter
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AppDelegate.reachabilityChanged(_:)), name: kReachabilityChangedNotification, object: nil)
         
         // Listen for any change in internet connection
         internetCheck = Reachability.reachabilityForInternetConnection()
         internetCheck?.startNotifier()
+        // I need to run this because the first time I don't have a notification to tell me if I have internet or not.
+        statusChangedWithReachability(internetCheck!)
         
         return true
     }
