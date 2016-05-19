@@ -8,13 +8,21 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    var videos = [Videos]()
 
     // Created pressing ctrl+dragging the label from Main.storyboard to here
     @IBOutlet weak var displayLabel: UILabel!
+    @IBOutlet weak var tableView: UITableView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Setting this class as delegate for dataSource and delegate. This can be done also via GUI dragging the tableView to the controller and selecting dataSource/delegate
+        tableView.dataSource = self
+        tableView.delegate = self
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.reachabilityStatusChanged), name: "ReachStatusChanged", object: nil)
         
@@ -23,25 +31,19 @@ class ViewController: UIViewController {
         
         // Call API
         let api = APIManager()
-        let urlApi = "https://itunes.apple.com/uk/rss/topmusicvideos/limit=10/json"
+        let urlApi = "https://itunes.apple.com/uk/rss/topmusicvideos/limit=50/json"
         api.loadData(urlApi, completion: didLoadData)
     }
     
     func didLoadData(videos: [Videos]) {
         
+        self.videos = videos
+        
         for item in videos {
             print("name = \(item.vName)")
         }
         
-//        let alert = UIAlertController(title: (result), message: nil, preferredStyle: .Alert)
-//        
-//        let okAction = UIAlertAction(title: "Ok", style: .Default){ action -> Void in
-//            //do something if you want
-//        }
-//        
-//        alert.addAction(okAction)
-//        self.presentViewController(alert, animated: true, completion:nil)
-        
+        tableView.reloadData()
     }
     
     // method to execute every time the ReachStatusChanged notification is received
@@ -66,5 +68,24 @@ class ViewController: UIViewController {
         NSNotificationCenter.defaultCenter().removeObserver(self, name: "ReachStatusChanged", object: nil)
     
     }
+    
+    // Methods for the protocols UITableViewDataSource, UITableViewDataSource
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
+        return videos.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
+        let video = videos[indexPath.row]
+        cell.textLabel?.text = ("\(indexPath.row + 1)")
+        cell.detailTextLabel?.text = video.vName
+        return cell
+    
+    }
 }
-
