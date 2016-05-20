@@ -39,7 +39,7 @@ class MusicVideoTVC: UITableViewController {
     func reachabilityStatusChanged(){
         switch reachabilityStatus {
         case NOACCESS:
-            view.backgroundColor = UIColor.redColor()
+            //view.backgroundColor = UIColor.redColor()
             // Move back to the main queue
             dispatch_async(dispatch_get_main_queue()){
                 let alert = UIAlertController(title: "No Internet Access", message: "Please make sure you are connected to the Internet", preferredStyle: .Alert)
@@ -69,7 +69,7 @@ class MusicVideoTVC: UITableViewController {
             }
             
         default:
-            view.backgroundColor = UIColor.greenColor()
+            //view.backgroundColor = UIColor.greenColor()
             if videos.count > 0 {
                 print("Do not refresh API")
             } else {
@@ -82,7 +82,7 @@ class MusicVideoTVC: UITableViewController {
     func runAPI() {
         // Call API
         let api = APIManager()
-        let urlApi = "https://itunes.apple.com/uk/rss/topmusicvideos/limit=50/json"
+        let urlApi = "https://itunes.apple.com/uk/rss/topmusicvideos/limit=200/json"
         api.loadData(urlApi, completion: didLoadData)
     }
     
@@ -104,12 +104,13 @@ class MusicVideoTVC: UITableViewController {
         return videos.count
     }
     
+    private struct storyboard {
+        static let cellReuseIdentifier = "cell"
+    }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
-        let video = videos[indexPath.row]
-        cell.textLabel?.text = ("\(indexPath.row + 1)")
-        cell.detailTextLabel?.text = video.vName
+        let cell = tableView.dequeueReusableCellWithIdentifier(storyboard.cellReuseIdentifier, forIndexPath: indexPath) as! MusicVideoTableViewCell
+        cell.video = videos[indexPath.row]
         return cell
     }
     
