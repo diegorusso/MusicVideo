@@ -23,6 +23,11 @@ class MusicVideoTableViewCell: UITableViewCell {
     @IBOutlet weak var musicTitle: UILabel!
     
     func updateCell(){
+        
+        // This is needed to adapt fonts to system size (from accessibility)
+        musicTitle.font = UIFont.preferredFontForTextStyle(UIFontTextStyleSubheadline)
+        rank.font = UIFont.preferredFontForTextStyle(UIFontTextStyleSubheadline)
+        
         musicTitle.text = video?.vName
         rank.text = ("\(video!.vRank)")
         //musicImage.image = UIImage(named: "imageNotAvailable")

@@ -16,12 +16,19 @@ class MusicVideoTVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.reachabilityStatusChanged), name: "ReachStatusChanged", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MusicVideoTVC.reachabilityStatusChanged), name: "ReachStatusChanged", object: nil)
+        
+        // That's an observer which runs preferredFontChange whenever the user changes the system font
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MusicVideoTVC.preferredFontChange), name: UIContentSizeCategoryDidChangeNotification, object: nil)
         
         // Just call it the first time
         reachabilityStatusChanged()
         
         
+    }
+    
+    func preferredFontChange(){
+        print("The preferred font has changed")
     }
     
     func didLoadData(videos: [Videos]) {
@@ -89,6 +96,7 @@ class MusicVideoTVC: UITableViewController {
     // It is called just as the object  is about to be deallocated
     deinit{
         NSNotificationCenter.defaultCenter().removeObserver(self, name: "ReachStatusChanged", object: nil)
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIContentSizeCategoryDidChangeNotification, object: nil)
         
     }
     
