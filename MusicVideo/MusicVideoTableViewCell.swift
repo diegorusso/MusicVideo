@@ -31,6 +31,7 @@ class MusicVideoTableViewCell: UITableViewCell {
             print("Getting data from array...")
             musicImage.image = UIImage(data: video!.vImageData!)
         } else {
+            print("Getting images in background thread...")
             GetVideoImage(video!, imageView: musicImage)
         }
         
