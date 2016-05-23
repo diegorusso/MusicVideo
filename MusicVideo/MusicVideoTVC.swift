@@ -12,6 +12,8 @@ class MusicVideoTVC: UITableViewController {
     
     var videos = [Videos]()
     
+    var limit = 10
+    
     // This is called only once
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +40,9 @@ class MusicVideoTVC: UITableViewController {
         for item in videos {
             print("name = \(item.vName)")
         }
+        
+        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.redColor()]
+        title = ("The iTunes Top \(limit) Music Videos")
         
         tableView.reloadData()
     }
@@ -82,14 +87,36 @@ class MusicVideoTVC: UITableViewController {
             } else {
                 runAPI()
             }
-            
         }
     }
     
+    @IBAction func refresh(sender: UIRefreshControl) {
+        refreshControl?.endRefreshing()
+        runAPI()
+    }
+    
+    
+    func getAPICount(){
+        if (NSUserDefaults.standardUserDefaults().objectForKey("APICNT") != nil){
+            let theValue = NSUserDefaults.standardUserDefaults().objectForKey("APICNT") as! Int
+            limit = theValue
+        }
+        
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "E, dd MMM yyyy HH:mm:ss"
+        let refreshDate = formatter.stringFromDate(NSDate())
+        
+        refreshControl?.attributedTitle = NSAttributedString(string: "\(refreshDate)")
+    
+    }
+    
     func runAPI() {
+        
+        getAPICount()
+        
         // Call API
         let api = APIManager()
-        let urlApi = "https://itunes.apple.com/uk/rss/topmusicvideos/limit=200/json"
+        let urlApi = "https://itunes.apple.com/uk/rss/topmusicvideos/limit=\(limit)/json"
         api.loadData(urlApi, completion: didLoadData)
     }
     

@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -80,6 +81,12 @@
                         </barButtonItem>
                     </toolbarItems>
                     <navigationItem key="navigationItem" id="6zf-uY-Ne0"/>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="No0-SC-ddX">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <connections>
+                            <action selector="refresh:" destination="zal-vZ-6dW" eventType="valueChanged" id="4Dz-WM-XMT"/>
+                        </connections>
+                    </refreshControl>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="12M-Rb-OQz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -100,7 +107,7 @@
                                         <rect key="frame" x="0.0" y="64" width="600" height="84"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bhR-Rt-uDD" id="ZSK-2H-O4D">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="84"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="83.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iS5-CF-ZVV">
@@ -127,7 +134,7 @@
                                         <rect key="frame" x="0.0" y="148" width="600" height="84"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="caY-ON-csi" id="eMK-KJ-qeJ">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="84"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="83.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Feedback" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="84j-zW-pmG">
@@ -212,10 +219,16 @@
                                         <rect key="frame" x="0.0" y="400" width="600" height="84"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KwA-9U-06k" id="q45-mA-TMk">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="83.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="84"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qof-lx-3Sk">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qof-lx-3Sk">
+                                                    <rect key="frame" x="8" y="8" width="584" height="75"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of Music Videos" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J0v-xw-1SZ">
                                                     <rect key="frame" x="8" y="8" width="584" height="75"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -223,10 +236,14 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="Qof-lx-3Sk" firstAttribute="top" secondItem="q45-mA-TMk" secondAttribute="topMargin" id="554-8H-Epg"/>
-                                                <constraint firstItem="Qof-lx-3Sk" firstAttribute="leading" secondItem="q45-mA-TMk" secondAttribute="leadingMargin" id="TZ8-fb-29p"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="Qof-lx-3Sk" secondAttribute="bottom" constant="-7.5" id="ZuF-Cz-3j2"/>
-                                                <constraint firstItem="Qof-lx-3Sk" firstAttribute="trailing" secondItem="q45-mA-TMk" secondAttribute="trailingMargin" id="jkr-PU-JCM"/>
+                                                <constraint firstItem="J0v-xw-1SZ" firstAttribute="top" secondItem="q45-mA-TMk" secondAttribute="topMargin" id="7yt-Ba-f8v"/>
+                                                <constraint firstItem="Qof-lx-3Sk" firstAttribute="leading" secondItem="J0v-xw-1SZ" secondAttribute="leading" id="90s-Mi-auE"/>
+                                                <constraint firstItem="Qof-lx-3Sk" firstAttribute="trailing" secondItem="q45-mA-TMk" secondAttribute="trailingMargin" id="Adh-Ul-s4L"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Qof-lx-3Sk" secondAttribute="bottom" constant="-7.5" id="O98-Ez-1C0"/>
+                                                <constraint firstItem="J0v-xw-1SZ" firstAttribute="trailing" secondItem="Qof-lx-3Sk" secondAttribute="trailing" id="g8B-X0-0al"/>
+                                                <constraint firstItem="Qof-lx-3Sk" firstAttribute="baseline" secondItem="J0v-xw-1SZ" secondAttribute="baseline" id="qWb-gh-Cvk"/>
+                                                <constraint firstItem="Qof-lx-3Sk" firstAttribute="firstBaseline" secondItem="J0v-xw-1SZ" secondAttribute="firstBaseline" id="xha-pX-wqC"/>
+                                                <constraint firstItem="J0v-xw-1SZ" firstAttribute="leading" secondItem="q45-mA-TMk" secondAttribute="leadingMargin" id="ygi-LD-sdY"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -234,20 +251,32 @@
                                         <rect key="frame" x="0.0" y="484" width="600" height="84"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="w7Q-97-LVA" id="7Vw-at-qXh">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="83.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="84"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="10" minValue="10" maxValue="200" translatesAutoresizingMaskIntoConstraints="NO" id="Ec8-Xr-Xvl">
-                                                    <rect key="frame" x="46" y="27" width="509" height="31"/>
+                                                    <rect key="frame" x="46" y="30" width="509" height="31"/>
                                                     <connections>
                                                         <action selector="valueChanged:" destination="WRD-ZH-lNa" eventType="valueChanged" id="072-HF-KLu"/>
                                                     </connections>
                                                 </slider>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Drag the slider below" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pbp-34-fU5">
+                                                    <rect key="frame" x="48" y="8" width="505" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="4KW-g2-iAL"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="Ec8-Xr-Xvl" firstAttribute="centerY" secondItem="7Vw-at-qXh" secondAttribute="centerY" id="Jrh-g3-DWs"/>
-                                                <constraint firstItem="Ec8-Xr-Xvl" firstAttribute="centerX" secondItem="7Vw-at-qXh" secondAttribute="centerX" id="Kfb-uj-G4E"/>
-                                                <constraint firstItem="Ec8-Xr-Xvl" firstAttribute="leading" secondItem="7Vw-at-qXh" secondAttribute="leadingMargin" constant="40" id="TGT-WO-5ve"/>
+                                                <constraint firstItem="Ec8-Xr-Xvl" firstAttribute="top" secondItem="pbp-34-fU5" secondAttribute="bottom" constant="1" id="61z-ml-KwD"/>
+                                                <constraint firstItem="pbp-34-fU5" firstAttribute="leading" secondItem="7Vw-at-qXh" secondAttribute="leadingMargin" constant="40" id="U4I-hg-QHa"/>
+                                                <constraint firstItem="pbp-34-fU5" firstAttribute="leading" secondItem="Ec8-Xr-Xvl" secondAttribute="leading" id="fFk-yT-wDg"/>
+                                                <constraint firstItem="pbp-34-fU5" firstAttribute="centerX" secondItem="7Vw-at-qXh" secondAttribute="centerX" id="lIq-fb-bfE"/>
+                                                <constraint firstItem="pbp-34-fU5" firstAttribute="top" secondItem="7Vw-at-qXh" secondAttribute="topMargin" id="sF9-iK-PaG"/>
+                                                <constraint firstItem="pbp-34-fU5" firstAttribute="trailing" secondItem="Ec8-Xr-Xvl" secondAttribute="trailing" id="vom-fy-kgm"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -263,7 +292,9 @@
                         <outlet property="APICnt" destination="Qof-lx-3Sk" id="CEc-xP-ttJ"/>
                         <outlet property="aboutDisplay" destination="iS5-CF-ZVV" id="tWj-Z2-luW"/>
                         <outlet property="bestImageDisplay" destination="DDd-au-IWP" id="25B-1l-M9M"/>
+                        <outlet property="dragTheSliderDisplay" destination="pbp-34-fU5" id="CZM-u1-M1V"/>
                         <outlet property="feedBackDisplay" destination="84j-zW-pmG" id="Vtg-0K-G8B"/>
+                        <outlet property="numberOfMusicVideos" destination="J0v-xw-1SZ" id="x6S-Ys-b3G"/>
                         <outlet property="securityDisplay" destination="bue-XZ-xmp" id="AhC-jz-7G3"/>
                         <outlet property="sliderCnt" destination="Ec8-Xr-Xvl" id="gE4-DR-bnN"/>
                         <outlet property="touchID" destination="V7X-GO-9Ux" id="uef-Bg-hfd"/>
