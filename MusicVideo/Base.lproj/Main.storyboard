@@ -458,6 +458,9 @@
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="K55-1S-wkN"/>
                         <barButtonItem systemItem="action" id="aW7-Dz-16R">
                             <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="socialMedia:" destination="7Wx-Yc-16z" id="FMM-je-Ok2"/>
+                            </connections>
                         </barButtonItem>
                     </toolbarItems>
                     <connections>
