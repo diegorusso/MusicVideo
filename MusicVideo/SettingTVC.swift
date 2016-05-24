@@ -8,6 +8,7 @@
 
 import UIKit
 import MessageUI
+import LocalAuthentication
 
 class SettingTVC: UITableViewController, MFMailComposeViewControllerDelegate {
 
@@ -19,8 +20,8 @@ class SettingTVC: UITableViewController, MFMailComposeViewControllerDelegate {
     @IBOutlet weak var securityDisplay: UILabel!
     @IBOutlet weak var touchID: UISwitch!
     
-    
     @IBOutlet weak var bestImageDisplay: UILabel!
+    @IBOutlet weak var bestImageSwitch: UISwitch!
     
     @IBOutlet weak var numberOfMusicVideos: UILabel!
     @IBOutlet weak var APICnt: UILabel!
@@ -51,7 +52,27 @@ class SettingTVC: UITableViewController, MFMailComposeViewControllerDelegate {
             sliderCnt.value = 10.0
             APICnt.text = ("\(Int(sliderCnt.value))")
         }
+        
+        bestImageSwitch.on = NSUserDefaults.standardUserDefaults().boolForKey("BestImage")
+        
+        checkBiometricCapabilities()
 
+    }
+    
+    func checkBiometricCapabilities(){
+        // Create the local Authentication Context
+        let context = LAContext()
+        var touchIDError:NSError?
+        
+        // Check if we can access local device authentication
+        if context.canEvaluatePolicy(LAPolicy.DeviceOwnerAuthenticationWithBiometrics, error:&touchIDError){
+            touchID.enabled = true
+            securityDisplay.text = "Security"
+        } else {
+            touchID.enabled = false
+            securityDisplay.text = "TouchID not available"
+        }
+    
     }
     
     
@@ -70,6 +91,14 @@ class SettingTVC: UITableViewController, MFMailComposeViewControllerDelegate {
         }
     }
     
+    @IBAction func bestImage(sender: UISwitch) {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        if bestImageSwitch.on {
+            defaults.setBool(bestImageSwitch.on, forKey: "BestImage")
+        } else {
+            defaults.setBool(false, forKey: "BestImage")
+        }
+    }
     
     func preferredFontChange() {
         aboutDisplay.font = UIFont.preferredFontForTextStyle(UIFontTextStyleSubheadline)

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Videos{
+class Video{
     
     var vRank = 0
     
@@ -101,7 +101,7 @@ class Videos{
         if let img = data["im:image"] as? JSONArray,
             image = img[2] as? JSONDictionary,
             label = image["label"] as? String {
-                _vImageUrl = label.stringByReplacingOccurrencesOfString("100x100", withString: "600x600")
+                _vImageUrl = label
         } else {
             _vImageUrl = ""
         }

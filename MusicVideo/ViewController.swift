@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    var videos = [Videos]()
+    var videos = [Video]()
 
     // Created pressing ctrl+dragging the label from Main.storyboard to here
     @IBOutlet weak var displayLabel: UILabel!
@@ -35,7 +35,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         api.loadData(urlApi, completion: didLoadData)
     }
     
-    func didLoadData(videos: [Videos]) {
+    func didLoadData(videos: [Video]) {
         
         self.videos = videos
         

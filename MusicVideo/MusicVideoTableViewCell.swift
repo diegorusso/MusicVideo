@@ -12,7 +12,7 @@ class MusicVideoTableViewCell: UITableViewCell {
     
     // The logic to setup the cell should be in this class and nowhere else!
     
-    var video: Videos? {
+    var video: Video? {
         didSet{
             updateCell()
         }
@@ -43,11 +43,21 @@ class MusicVideoTableViewCell: UITableViewCell {
     }
     
     
-    func GetVideoImage(video: Videos, imageView: UIImageView){
+    func GetVideoImage(video: Video, imageView: UIImageView){
         // This happens in a separate thread
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)){
             
-            let data = NSData(contentsOfURL: NSURL(string: video.vImageUrl)!)
+            let bestImage = NSUserDefaults.standardUserDefaults().boolForKey("BestImage")
+            var vImageUrl: String
+            
+            if (bestImage && reachabilityStatus == WIFI){
+                vImageUrl = video.vImageUrl.stringByReplacingOccurrencesOfString("100x100", withString: "900x900")
+            } else {
+                vImageUrl = video.vImageUrl.stringByReplacingOccurrencesOfString("100x100", withString: "200x200")
+            }
+            
+            
+            let data = NSData(contentsOfURL: NSURL(string: vImageUrl)!)
             var image: UIImage?
             if data != nil {
                 video.vImageData = data

@@ -10,9 +10,9 @@ import UIKit
 
 class MusicVideoTVC: UITableViewController {
     
-    var videos = [Videos]()
+    var videos = [Video]()
     
-    var filterSearch = [Videos]()
+    var filterSearch = [Video]()
     
     let resultSearchController = UISearchController(searchResultsController: nil)
     
@@ -37,7 +37,7 @@ class MusicVideoTVC: UITableViewController {
         print("The preferred font has changed")
     }
     
-    func didLoadData(videos: [Videos]) {
+    func didLoadData(videos: [Video]) {
         
         self.videos = videos
         
@@ -219,7 +219,7 @@ class MusicVideoTVC: UITableViewController {
      override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == storyboard.segueIdentifier {
             if let indexPath = tableView.indexPathForSelectedRow {
-                let video: Videos
+                let video: Video
                 
                 if resultSearchController.active {
                     video = filterSearch[indexPath.row]

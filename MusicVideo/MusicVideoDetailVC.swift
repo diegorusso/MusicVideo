@@ -14,7 +14,7 @@ import LocalAuthentication
 
 class MusicVideoDetailVC: UIViewController {
 
-    var videos:Videos!
+    var videos:Video!
     
     var securitySwitch:Bool = false
     
