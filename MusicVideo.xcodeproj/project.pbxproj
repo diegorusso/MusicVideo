@@ -11,7 +11,6 @@
 		D3B13A041CF09B010079E2AD /* MusicVideoDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B13A031CF09B010079E2AD /* MusicVideoDetailVC.swift */; };
 		D3B13A061CF1B85F0079E2AD /* SettingTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B13A051CF1B85F0079E2AD /* SettingTVC.swift */; };
 		D3B564B61CE885720092EA03 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B564B51CE885720092EA03 /* AppDelegate.swift */; };
-		D3B564B81CE885720092EA03 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B564B71CE885720092EA03 /* ViewController.swift */; };
 		D3B564BB1CE885720092EA03 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3B564B91CE885720092EA03 /* Main.storyboard */; };
 		D3B564BD1CE885720092EA03 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3B564BC1CE885720092EA03 /* Assets.xcassets */; };
 		D3B564C01CE885720092EA03 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3B564BE1CE885720092EA03 /* LaunchScreen.storyboard */; };
@@ -20,6 +19,7 @@
 		D3B564E81CE895A60092EA03 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B564E71CE895A60092EA03 /* APIManager.swift */; };
 		D3B564EB1CE8EE660092EA03 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B564EA1CE8EE660092EA03 /* Constants.swift */; };
 		D3B564ED1CE8EFA80092EA03 /* MusicVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B564EC1CE8EFA80092EA03 /* MusicVideo.swift */; };
+		D3E3E5E51CF6438900E2FED9 /* JSONDataExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E3E5E41CF6438900E2FED9 /* JSONDataExtractor.swift */; };
 		D3E580931CEE67C0004BAB9F /* MusicVideoTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E580921CEE67C0004BAB9F /* MusicVideoTVC.swift */; };
 		D3E580951CEEE298004BAB9F /* MusicVideoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E580941CEEE298004BAB9F /* MusicVideoTableViewCell.swift */; };
 /* End PBXBuildFile section */
@@ -49,7 +49,6 @@
 		D3B13A051CF1B85F0079E2AD /* SettingTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingTVC.swift; sourceTree = "<group>"; };
 		D3B564B21CE885720092EA03 /* MusicVideo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicVideo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3B564B51CE885720092EA03 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D3B564B71CE885720092EA03 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D3B564BA1CE885720092EA03 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D3B564BC1CE885720092EA03 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D3B564BF1CE885720092EA03 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -63,6 +62,7 @@
 		D3B564E71CE895A60092EA03 /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		D3B564EA1CE8EE660092EA03 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D3B564EC1CE8EFA80092EA03 /* MusicVideo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicVideo.swift; sourceTree = "<group>"; };
+		D3E3E5E41CF6438900E2FED9 /* JSONDataExtractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONDataExtractor.swift; sourceTree = "<group>"; };
 		D3E580921CEE67C0004BAB9F /* MusicVideoTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicVideoTVC.swift; sourceTree = "<group>"; };
 		D3E580941CEEE298004BAB9F /* MusicVideoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicVideoTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -159,6 +159,7 @@
 			children = (
 				D3B564EC1CE8EFA80092EA03 /* MusicVideo.swift */,
 				D3B564E71CE895A60092EA03 /* APIManager.swift */,
+				D3E3E5E41CF6438900E2FED9 /* JSONDataExtractor.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -170,7 +171,6 @@
 				D3B13A031CF09B010079E2AD /* MusicVideoDetailVC.swift */,
 				D3E580921CEE67C0004BAB9F /* MusicVideoTVC.swift */,
 				D3E580941CEEE298004BAB9F /* MusicVideoTableViewCell.swift */,
-				D3B564B71CE885720092EA03 /* ViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -336,8 +336,8 @@
 			files = (
 				D3B13A061CF1B85F0079E2AD /* SettingTVC.swift in Sources */,
 				D3B564E81CE895A60092EA03 /* APIManager.swift in Sources */,
+				D3E3E5E51CF6438900E2FED9 /* JSONDataExtractor.swift in Sources */,
 				D3B13A041CF09B010079E2AD /* MusicVideoDetailVC.swift in Sources */,
-				D3B564B81CE885720092EA03 /* ViewController.swift in Sources */,
 				D3B564ED1CE8EFA80092EA03 /* MusicVideo.swift in Sources */,
 				D3E580951CEEE298004BAB9F /* MusicVideoTableViewCell.swift in Sources */,
 				D3B564B61CE885720092EA03 /* AppDelegate.swift in Sources */,
